@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Показать текущий год</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        function showCurrentYear() {
+            var currentDate = new Date();
+            var currentYear = currentDate.getFullYear();
+            alert("Текущий год: " + currentYear);
+        }
+    </script>
+    <script src="main.js" defer></script>
+</head>
+<body>
+    <p>Работа с объектом Date</p>
+    <button onclick="showCurrentYear()">Показать год</button>
+    <p>Работа с операторами организации циклов</p>
+    <button onclick="showName()">Показать имя и фамилию</button>
+    <p>Работа с объектом Array</p>
+    <button onclick="findMinInArray()">Найти минимальный элемент в массиве</button>
+    <p>Работа с объектом Math</p>
+    <button onclick="calculateFormula()">Вычислить формулу</button>
+    <p>Работа со строками STRING</p>
+    <button class="string-operation" onclick="calculateStringOperations()">Выполнить операции со строками</button>
+    <div id="stringOutput" class="string-output"></div>
+    <div id="resultOutput"></div>
+    <div id="nameOutput"></div>
+    <script>
+        function showName() {
+            var firstName = "Максим"; // Замените на ваше имя
+            var lastName = "Исаченко"; // Замените на вашу фамилию
+            var n = 7;
+            var repetitions = n + 5;
+            var outputDiv = document.getElementById('nameOutput');
+
+            if (outputDiv.innerHTML === '') {
+                for (var i = 0; i < repetitions; i++) {
+                    var paragraph = document.createElement('p');
+                    paragraph.textContent = lastName + " " + firstName;
+                    outputDiv.appendChild(paragraph);
+                }
+            } else {
+                outputDiv.innerHTML = ''; // Очистить результаты
+            }
+        }
+
+        function findMinInArray() {
+            var array = [];
+            for (var i = 0; i < 5; i++) {
+                array.push(Math.floor(Math.random() * 100)); // Генерация случайных чисел от 0 до 99
+            }
+            var minElement = Math.min(...array);
+            alert("Массив: " + array.join(', ') + "\nМинимальный элемент в массиве: " + minElement);
+        }
+    </script>
+</body>
+</html>

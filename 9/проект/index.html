@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Script Injection</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <script defer src="assets/js/main.js"></script>
+</head>
+<body>
+    <div class="container">
+        <script>
+            alert("Добро пожаловать в Лабораторную работу №9!");
+            var result = confirm("Хочешь ли ты больше узнать о JS скриптах?");
+            if (result) {
+                alert("Я рад что ты интересуешься JS скриптами.");
+            } else {
+                alert("Очень жаль.");
+            }
+            var name = prompt("Могу ли я узнать твоё имя?:", "Максим");
+            if (name != null) {
+                alert("Приветствую, " + name + "!");
+            } else {
+                alert("Неправильный формат имени.");
+            }
+
+            function loadScript(url) {
+                var script = document.createElement('script');
+                script.src = url;
+                script.type = 'text/javascript';
+                document.head.appendChild(script);
+            }
+
+            loadScript('assets/js/dynamicScript.js');
+        </script>
+        <form id="myForm">
+            <input type="text" id="textField" name="textField" placeholder="Введите текст">
+            <button type="submit" id="submitButton">Отправить</button>
+        </form>
+        <a href="https://vk.com/karlmann.king" onclick="alert('Переход на страницу разработчика')">Кликните здесь</a>
+        <button onclick="executeOperators()">Выполнить операторы</button>
+        <div id="results"></div>
+        <img src="image.png" />
+    </div>
+</body>
+</html>

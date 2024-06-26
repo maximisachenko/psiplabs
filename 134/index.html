@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Моё Резюме</title>
+    <style>
+        /* Стили для спецсимволов */
+        p:last-child {
+            margin-bottom: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Шапка сайта -->
+    <header>
+        <h1>Моё Резюме</h1>
+        <nav>
+            <a href="#">Интересы</a>
+            <a href="#">История</a>
+            <a href="#">Статьи</a>
+            <a href="#">Контакты</a>
+        </nav>
+    </header>
+
+    <!-- Оформление текста -->
+    <p class="centered-text">Привет, меня зовут <strong>Максим</strong>. Я студент ГГПК и учусь на специальность <em>программист</em>.</p>
+
+    <!-- Списки -->
+    <h2>Мои навыки:</h2>
+    <ul>
+        <li>Glide</li>
+        <li>C#</li>
+        <li>Pascal</li>
+    </ul>
+
+    <h2>Мои любимые блюда:</h2>
+    <ol>
+        <li>Пельмени</li>
+        <li>Блинчики</li>
+        <li>Картошечка</li>
+    </ol>
+
+    <!-- Изображения -->
+    <h2>Мои фотографии:</h2>
+    <div class="image-gallery">
+        <figure class="image-with-caption">
+            <img src="photoramka.jpg" alt="Фото">
+            <figcaption>- Это я и мой кот Васэн...</figcaption>
+        </figure>
+        <figure class="image-with-caption">
+            <img src="Friend.jpg" alt="Фото">
+            <figcaption>- Это я и мой друг Ильюха...</figcaption>
+        </figure>
+        <figure class="image-with-caption">
+            <img src="Girlfriend.jpg" alt="Фото">
+            <figcaption>- Это я и моя подруга Юлька...</figcaption>
+        </figure>
+    </div>
+
+    <!-- Аудио и видео-контент -->
+    <h2>Моя любимая песня: Rammstein - Klavier</h2>
+    <audio controls>
+        <source src="klavier.mp3" type="audio/mp3">
+        Ваш браузер не поддерживает аудио-элемент.
+    </audio>
+
+    <h2>Мой любимый фильм: Остров проклятых</h2>
+    <video width="320" height="240" controls>
+        <source src="video.mp4" type="video/mp4">
+        Ваш браузер не поддерживает видео-элемент.
+    </video>
+
+    <!-- Таблицы -->
+    <h2>Мои работы:</h2>
+    <table border="1">
+        <tr>
+            <th>Проект</th>
+            <th>Язык программирования</th>
+        </tr>
+        <tr>
+            <td>Проект 1</td>
+            <td>JavaScript</td>
+        </tr>
+        <tr>
+            <td>Проект 2</td>
+            <td>Python</td>
+        </tr>
+    </table>
+
+    <!-- Пользовательские формы -->
+    <h2>Анкета:</h2>
+    <form>
+        <label for="name">Имя:</label>
+        <input type="text" id="name" name="name">
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email">
+
+        <input type="submit" value="Отправить">
+    </form>
+
+    <h2>Форма обратной связи:</h2>
+    <form>
+        <label for="feedback">Оставьте свой отзыв:</label>
+        <textarea id="feedback" name="feedback" rows="4" cols="50"></textarea>
+
+        <input type="submit" value="Отправить отзыв">
+    </form>
+
+    <h2>Форма заказа услуг:</h2>
+    <form>
+        <label for="service">Выберите услугу:</label>
+        <select id="service" name="service">
+            <option value="web-development">Веб-разработка</option>
+            <option value="graphic-design">Графический дизайн</option>
+            <option value="consulting">Консалтинг</option>
+        </select>
+
+        <label for="comments">Комментарии:</label>
+        <textarea id="comments" name="comments" rows="4" cols="50"></textarea>
+
+        <input type="submit" value="Отправить заказ">
+    </form>
+
+    <!-- Гиперссылки -->
+    <h2>Мои профили:</h2>
+    <a href="https://github.com/ваш_логин">GitHub</a>
+    <a href="https://linkedin.com/in/ваш_профиль">LinkedIn</a>
+
+    <!-- Спецсимволы -->
+    <p style="color: grey; font-weight: bold;">
+    Спецсимволы: &copy; &lt; &gt; &amp;</p>
+
+    <!-- Семантические теги -->
+    <article>
+        <h2>Статья 1: Как Астрономы Используют Музыку для Исследования Космоса?</h2>
+        <p>
+            В мире астрономии и музыки существует удивительное пересечение, которое позволяет ученым понимать и исследовать космические явления с помощью звуков. Астрономы и звуковые инженеры со всего мира работают вместе, чтобы превратить данные из космоса в музыкальные композиции, отображающие красоту и сложность Вселенной.
+
+            В основе этой удивительной практики лежит использование данных, собранных космическими телескопами и спутниками, чтобы создать аудиовизуальные произведения искусства, которые позволяют нам услышать звуки, порождаемые космическими объектами. Например, звуки, издаваемые звездами, планетами, галактиками и черными дырами, могут быть преобразованы в музыку.
+
+            Каждый объект в космосе излучает определенные частоты, которые можно преобразовать в звуки, а затем соотнести с музыкальными нотами. Этот процесс называется аудиализацией, и он позволяет астрономам "слышать" данные и лучше понимать их значение.
+        </p>
+    </article>
+
+    <article>
+        <h2>Статья 2: Удивительные Адаптации Морских Обитателей</h2>
+        <p>
+            Подводный мир полон удивительных существ, обладающих феноменальными адаптациями, которые позволяют им выживать и процветать в самых непредсказуемых условиях. От глубоководных обитателей до крошечных созданий прибрежных водоемов, каждый вид развил свои уникальные особенности, которые делают их невероятно интересными для научного исследования и восхищают любителей природы.
+
+            Одной из наиболее удивительных адаптаций является способность глубоководных рыб выдерживать огромные давления на глубине. Некоторые виды рыб обладают специальными балластными пузырями, которые регулируют их плавучесть и позволяют им оставаться на нужной глубине без усилий.
+        </p>
+    </article>
+    <footer>
+        <div class="footer-links">
+            <a href="#">Главная</a> |
+            <a href="#">О нас</a> |
+            <a href="#">Услуги</a> |
+            <a href="#">Контакты</a>
+        </div>
+
+        <div class="footer-social-icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+
+        <p>&copy; 2024 Исаченко Максим. Все права защищены.</p>
+    </footer>
+</body>
+</html>

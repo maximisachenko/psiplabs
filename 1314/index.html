@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Product Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Добавляем стили из второго CSS файла -->
+</head>
+<body>
+    <div class="container">
+        <div class="container" id="info">
+            <!-- Фамилия Имя Отчество -->
+            <p id="name">Исаченко Максим Андреевич</p>
+
+            <!-- Дата рождения -->
+            <div id="birthdate">26.05.2005</div>
+
+            <!-- Любое изображение -->
+            <img src="Mol.jpg" alt="Пример изображения">
+        </div>
+        <!-- Вставляем содержимое первого HTML файла -->
+        <div class="form-container">
+            <h2>Заказать обратный звонок</h2>
+            <p>Мы постоянно повышаем качество наших услуг. Заказывая обратный звонок на нашем сайте, вы можете быть уверены, что наши менеджеры свяжутся в удобное для Вас время.</p>
+            <form id="callback-form">
+                <div class="form-group">
+                    <label for="name">Ваше имя:<span class="required">*</span></label>
+                    <input type="text" id="name" name="name" placeholder="Введите имя">
+                    <div class="error-message" id="name-error"></div>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Телефон:<span class="required">*</span></label>
+                    <input type="tel" id="phone" name="phone" placeholder="+7(___)___-__-__">
+                    <div class="error-message" id="phone-error"></div>
+                </div>
+                <div class="form-group">
+                    <label for="time">Удобное время для звонка:</label>
+                    <input type="text" id="time" name="time" placeholder="Пример: с 9:00 до 18:00">
+                    <div class="error-message" id="time-error"></div>
+                </div>
+                <div class="form-group">
+                    <button type="submit">Заказать</button>
+                </div>
+            </form>
+        </div>
+        </div>
+    <!-- Вставляем скрипт из второго файла -->
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const form = document.getElementById('callback-form');
+            const nameInput = document.getElementById('name');
+            const phoneInput = document.getElementById('phone');
+            const timeInput = document.getElementById('time');
+
+            // Максимальная длина для каждого поля
+            const maxLength = {
+                name: 10, // Пример: максимальная длина имени 50 символов
+                phone: 15, // Пример: максимальная длина телефона 15 символов
+                time: 50 // Пример: максимальная длина времени для звонка 50 символов
+            };
+
+            form.addEventListener('submit', function (event) {
+                event.preventDefault(); // Предотвращаем отправку формы по умолчанию
+
+                // Сброс предыдущих ошибок
+                resetErrors();
+
+                // Валидация каждого поля
+                if (!validateName()) {
+                    displayError('name', 'Пожалуйста, введите ваше имя.');
+                }
+
+                if (!validatePhone()) {
+                    displayError('phone', 'Пожалуйста, введите корректный номер телефона.');
+                }
+
+                if (!validateTime()) {
+                    displayError('time', 'Пожалуйста, введите удобное время для звонка.');
+                }
+
+                // Если ошибок нет, можно выполнить дополнительные действия, например, отправку формы
+                if (isFormValid()) {
+                    // Здесь можно добавить код для отправки формы, например, через AJAX
+                    alert('Форма отправлена!');
+                }
+            });
+
+            // Функция для сброса ошибок
+            function resetErrors() {
+                document.querySelectorAll('.error-message').forEach(function (element) {
+                    element.textContent = '';
+                });
+                document.querySelectorAll('.form-group').forEach(function (element) {
+                    element.classList.remove('error');
+                });
+            }
+
+            // Функция для отображения ошибки
+            function displayError(inputName, errorMessage) {
+                const errorElement = document.getElementById(`${inputName}-error`);
+                if (errorElement) {
+                    errorElement.textContent = errorMessage;
+                    const formGroup = errorElement.closest('.form-group');
+                    if (formGroup) {
+                        formGroup.classList.add('error');
+                    }
+                }
+            }
+
+            // Функция для валидации имени
+            function validateName() {
+                const value = nameInput.value.trim();
+                if (value.length > maxLength.name) {
+                    displayError('name', `Превышена максимальная длина (${maxLength.name} символов)`);
+                    return false;
+                }
+                return value !== '';
+            }
+
+            // Функция для валидации телефона
+            function validatePhone() {
+                const value = phoneInput.value.trim();
+                if (value.length > maxLength.phone) {
+                    displayError('phone', `Превышена максимальная длина (${maxLength.phone} символов)`);
+                    return false;
+                }
+                return /^\+7\(\d{3}\)\d{3}-\d{2}-\d{2}$/.test(value); // Пример простой валидации
+            }
+
+            // Функция для валидации времени для звонка
+            function validateTime() {
+                const value = timeInput.value.trim();
+                if (value.length > maxLength.time) {
+                    displayError('time', `Превышена максимальная длина (${maxLength.time} символов)`);
+                    return false;
+                }
+                return value !== '';
+            }
+
+            // Функция для проверки всей формы на валидность
+            function isFormValid() {
+                return validateName() && validatePhone() && validateTime();
+                // Добавьте другие проверки, если необходимо
+            }
+        });
+    </script>
+</body>
+</html>
